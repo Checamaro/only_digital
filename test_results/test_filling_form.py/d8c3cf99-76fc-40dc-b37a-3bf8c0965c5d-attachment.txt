@@ -1,0 +1,13 @@
+Start Test
+Current url https://only.digital/projects#brief
+GOOD value URL
+Good value word
+Input user name
+Input email
+Input phone_number
+Input company
+Click 'project: site' button
+Input about project info
+Click budget button
+Click budget button
+Test Finished
