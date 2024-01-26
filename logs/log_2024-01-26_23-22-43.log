@@ -1,0 +1,11 @@
+
+-----
+Test: tests/test_filling_form.py::test_buy_product (call)
+Start time: 2024-01-26 23:22:44.284049
+Start name method: form_filling
+
+End time: 2024-01-26 23:22:58.212426
+End name method: form_filling
+URL: https://only.digital/projects#brief
+
+-----
