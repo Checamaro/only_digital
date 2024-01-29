@@ -29,7 +29,7 @@ jobs:
         run: |
           CHROMEDRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/121.0.6167.85/linux64/chrome-linux64.zip"
           wget "$CHROMEDRIVER_URL"
-          unzip chromedriver_linux64.zip
+          unzip chrome-linux64.zip
           chmod +x chromedriver
           sudo mv chromedriver /usr/local/bin/
       - name: first_test
