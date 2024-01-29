@@ -32,6 +32,8 @@ jobs:
           unzip chrome-linux64.zip
           chmod +x chromedriver
           sudo mv chromedriver /usr/local/bin/
+      - name: Set PATH
+        run: echo "::add-path::/usr/local/bin"
       - name: first_test
         if: "github.event.inputs.deployment_target == 'first_test'"
         run: pytest
