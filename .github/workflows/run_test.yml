@@ -33,7 +33,7 @@ jobs:
           wget "$CHROMEDRIVER_URL"
           unzip chromedriver-linux64.zip
           ls -la chromedriver-linux64  # Debug print to check the contents of the folder
-          chmod +x chromedriver-linux64/chromedriver
+          chmod +x chromedriver.exe
           sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
       - name: Set PATH
         run: echo "/usr/local/bin" >> $GITHUB_PATH
