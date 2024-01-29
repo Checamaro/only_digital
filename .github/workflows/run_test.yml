@@ -35,11 +35,8 @@ jobs:
           ls -la chromedriver-linux64  # Debug print to check the contents of the folder
           chmod +x chromedriver-linux64/chromedriver
           sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
-
-
       - name: Set PATH
-        run: echo "::add-path::/usr/local/bin"
-
-      - name: Run tests
+        run: echo "/usr/local/bin" >> $GITHUB_PATH
+      - name: first_test
         if: "github.event.inputs.deployment_target == 'first_test'"
         run: pytest
