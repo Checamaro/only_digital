@@ -31,9 +31,11 @@ jobs:
         run: |
           CHROMEDRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/121.0.6167.85/linux64/chromedriver-linux64.zip"
           wget "$CHROMEDRIVER_URL"
-          unzip chromedriver-linux64.zip  # Corrected the file name here
-          chmod +x chromedriver
-          sudo mv chromedriver /usr/local/bin/
+          unzip chromedriver-linux64.zip
+          ls -la chromedriver-linux64  # Debug print to check the contents of the folder
+          chmod +x chromedriver-linux64/chromedriver
+          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/
+
 
       - name: Set PATH
         run: echo "::add-path::/usr/local/bin"
