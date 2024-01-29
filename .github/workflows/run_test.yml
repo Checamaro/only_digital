@@ -11,7 +11,6 @@ on:
         options:
           - first_test
 
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -19,22 +18,26 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
       - name: Setup Python
-        uses: actions/checkout@v4
+        uses: actions/setup-python@v2
         with:
           python-version: "3.9"
-      - name: install dependencies
+
+      - name: Install dependencies
         run: pip install -r requirements.txt
+
       - name: Install ChromeDriver
         run: |
           CHROMEDRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/121.0.6167.85/linux64/chromedriver-linux64.zip"
           wget "$CHROMEDRIVER_URL"
-          unzip chrome-linux64.zip
+          unzip chromedriver-linux64.zip  # Corrected the file name here
           chmod +x chromedriver
           sudo mv chromedriver /usr/local/bin/
+
       - name: Set PATH
         run: echo "::add-path::/usr/local/bin"
-      - name: first_test
+
+      - name: Run tests
         if: "github.event.inputs.deployment_target == 'first_test'"
         run: pytest
-
