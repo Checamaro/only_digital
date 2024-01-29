@@ -27,7 +27,6 @@ jobs:
         run: pip install -r requirements.txt
       - name: Install ChromeDriver
         run: |
-          pip install -r requirements.txt
           CHROME_VERSION=$(google-chrome-stable --version | awk '{print $3}' | cut -d. -f1)
           CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
           curl -O "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
