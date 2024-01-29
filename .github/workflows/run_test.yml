@@ -27,9 +27,7 @@ jobs:
         run: pip install -r requirements.txt
       - name: Install ChromeDriver
         run: |
-          CHROME_VERSION=$(google-chrome-stable --version | awk '{print $3}' | cut -d. -f1)
-          CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-          CHROMEDRIVER_URL="https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
+          CHROMEDRIVER_URL="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/121.0.6167.85/linux64/chrome-linux64.zip"
           wget "$CHROMEDRIVER_URL"
           unzip chromedriver_linux64.zip
           chmod +x chromedriver
