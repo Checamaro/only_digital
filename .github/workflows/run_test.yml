@@ -19,14 +19,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: setup Python
+      - name: Setup Python
         uses: actions/checkout@v4
         with:
           python-version: "3.9"
-      - name: Install ChromeDriver
-        run: sudo apt-get install google-chrome-stable
       - name: install dependencies
         run: pip install -r requirements.txt
+      - name: Install ChromeDriver
+        run: |
+          pip install -r requirements.txt
+          CHROME_VERSION=$(google-chrome-stable --version | awk '{print $3}' | cut -d. -f1)
+          CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
+          curl -O "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
+          unzip chromedriver_linux64.zip
+          chmod +x chromedriver
+          sudo mv chromedriver /usr/local/bin/
       - name: first_test
         if: "github.event.inputs.deployment_target == 'first_test'"
         run: pytest

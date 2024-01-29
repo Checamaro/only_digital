@@ -11,7 +11,7 @@ def test_filling_in_form():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)
     options.add_argument('--headless')
-    g = Service('C:/Users/checa/PycharmProjects/pythonProject/only_digital/chromedriver.exe')
+    g = Service('./chromedriver.exe')
     driver = webdriver.Chrome(options=options, service=g)
 
 
