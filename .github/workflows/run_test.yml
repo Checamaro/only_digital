@@ -29,5 +29,5 @@ jobs:
         run: pip install -r requirements.txt
       - name: first_test
         if: "github.event.inputs.deployment_target == 'first_test'"
-        run: pytest tests\test_filling_form.py::test_filling_in_form
+        run: pytest
 
